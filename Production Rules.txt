@@ -1,0 +1,40 @@
+The modified Production Rules used for this project are as follows:
+
+R1: <Rat18F> -> <Optional Function Definitions> $$ <Optional Declaration List> <Statement List> $$
+R2: <Optional Function Definitions> -> <Function Definitions> | <Empty>
+R3: <Function Definitions> -> <Function> <Function Definitions Prime>
+R4: <Function Definitions Prime> -> <Function Definitions> | <Empty>
+R5: <Function> -> function <Identifier> ( <Optional Parameter List> ) <Optional Declaration List>
+R6: <Optional Parameter List> -> <Parameter List> | <Empty>
+R7: <Parameter List> -> <Parameter> <Parameter List Prime>
+R8: <Parameter List Prime> -> , <Parameter> <Parameter List Prime> | <Empty>
+R9: <Parameter> -> <IDs> : <Qualifier>
+R10: <Qualifier> -> int | bool | real
+R11: <Body> -> { <Statement List> }
+R12: <Optional Declaration List> -> <Declaration List> | <Empty>
+R13:  <Declaration List> -> <Declaration> ; <Declaration List Prime>
+R14: <Declaration List Prime> -> <Declaration List> | <Empty>
+R15: <Declaration> -> <Qualifier> <IDs>
+R16: <IDs> -> <Identifier> <IDs Prime>
+R17: <IDs Prime> -> , <Ids> | <Empty>
+R18: <Statement List> -> <Statement> <Statement List Prime>
+R19: <Statement List Prime> -> <Statement List> | <Empty>
+R20: <Statement> -> <Compound> | <Assign> | <If> | <Return> | <Print> | <Scan> | <While>
+R21: <Compound> -> { <Statement List> }
+R22: <Assign> -> <Identifier> = <Expression> ;
+R23: <If> -> if ( <Condition> ) <Statement> <If Prime>
+R24: <If Prime> -> ifend | else <Statement> ifend
+R25: <Return> -> return <Return Prime>
+R26: <Return Prime> -> ; | <Expression> ;
+R27: <Print> -> put ( <Expression> ) ;
+R28: <Scan> -> get ( <IDs> ) ;
+R29: <While> -> while ( <Condition> ) <Statement> whileend
+R30: <Condition> -> <Expression> <Relational Operator> <Expression>
+R31: <Relational Operator> -> == | ^= | > | < | => | =<
+R32: <Expression> -> <Term> <Expression Prime>
+R33: <Expression Prime> -> + <Term> <Expression> | - <Term> <Expression> | <Empty>
+R34: <Term> -> <Factor> <Term Prime>
+R35: <Term Prime> -> * <Factor> <Term Prime> | / <Factor> <Term Prime>
+R36: <Factor> -> - <Primary> | <Primary>
+R37: <Primary> -> <Identifier> | <Integer> | <Identifier> ( <IDs> ) | ( <Expression> ) | <Real> | true | false
+R38: <Empty> -> epsilon
